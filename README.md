@@ -38,7 +38,7 @@ Run `./gradlew clean build` to build the project and `./gradlew bootRun` to run.
 
 ## Final Thoughts
 
-- I dont like `@SpringBootTests` integration tests in the controller- The controller is already responsible for so much. Not included in this project is custom serialization/deserialization, which we definitely want to write tests for if they exist. Theres also controller advise...Why add integration tests to the mix? Ideally, they would be Automated Postman Tests, or included in another testing file. 
+- I dont like `@SpringBootTests` integration tests in the controller- The controller is already responsible for so much. Not included in this project is custom serialization/deserialization, which we definitely want to write tests for if they exist. Theres also controller advise...Why add integration tests to the mix? Single Responsibility being violated strongly here. It's not really the developer's fault though. It comes with the territory of Spring Boot. Ideally, they would be Automated Postman Tests, or included in another testing file, clearly seperated away from the controller unit tests. 
 - Spring Boot is designed for the microservice architecture. Our services are supposed to be small. Why create interfaces between classes when we only have 1 implementation 95% of the time? Use them when we need them, dont when we dont. Mockito allows us to still test everything as a unit, independently, without dependencies, without interfaces. 
 - I like using BDD when I can, and since Spring Boot is stateless, the test naming convention `whenSomethingHappens_thenExpectThisResult` is clean and easy to read.
 - If the point calculator feature develops over time, (for example, by increasing the number of variables,) we could utilize "parameterized testing".
