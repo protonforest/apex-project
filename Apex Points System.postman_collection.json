@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "125cac99-df25-405f-b583-9b1e040eca8f",
+		"name": "Apex Points System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Calculate Rewards for a transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"123\",\r\n    \"transactionAmount\" : 123.45\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/calculateRewards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"calculateRewards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Calculate Rewards for Multiple Months of Transactions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transactions\" : {\r\n        \"January\" : [\r\n            {\r\n                \"id\": \"123\",\r\n                \"transactionAmount\" : 123.45\r\n            },\r\n            {\r\n                \"id\": \"123\",\r\n                \"transactionAmount\" : 200\r\n            }\r\n        ],\r\n        \"February\" : [\r\n            {\r\n                \"id\": \"123\",\r\n                \"transactionAmount\" : 51\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/calculateRewardsForMonths",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"calculateRewardsForMonths"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
